@@ -13,7 +13,7 @@ namespace RESTfulAPI.Services
 {
     public class JsonRepository
     {         
-        public string GetAllJsons(string tableName, string department)
+        public string GetAllJsons(string tableName)
         {
             SqlDataReader rdr = null;
             SqlConnection conn = null;

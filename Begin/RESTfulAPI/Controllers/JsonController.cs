@@ -19,12 +19,12 @@ namespace RESTfulAPI.Controllers
 
         public string Get(string tableName)
         {
-            return jsonRepository.GetAllJsons(tableName, null);
+            return jsonRepository.GetAllJsons(tableName);
         }
 
-        public string Get(string tableName, string department)
-        {
-            return jsonRepository.GetAllJsons(tableName, department);
-        }
+        //public string Get(string tableName, string department)
+        //{
+        //    return jsonRepository.GetAllJsons(tableName, department);
+        //}
     }
 }
