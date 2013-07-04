@@ -1,8 +1,51 @@
-﻿<header>
+﻿@model System.Web.Http.Description.IApiExplorer
+<header>
     <div class="content-wrapper">
         <div class="float-left">
             <p class="site-title">
-                <a href="~/">ASP.NET Web API</a></p>
+                <a href="~/">ASP.NET Web API for Returning JSONs</a></p>
+        </div>
+    </div>
+</header>
+<div id="body">
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>ASP.NET Web API Help Page</h1>
+            </hgroup>
+        </div>
+    </section>
+    <section class="content-wrapper main-content clear-fix">
+        <h3>APIs</h3>
+        <ul>
+        @foreach (var api in Model.ApiDescriptions)
+        {
+            <li>
+            <h5>@api.HttpMethod @api.RelativePath</h5>
+            <blockquote>
+            <p>@api.Documentation</p>
+            @if (api.ParameterDescriptions.Count > 0)
+            {
+                <h6>Parameters</h6>
+                <ul>
+                @foreach (var parameter in api.ParameterDescriptions)
+                {
+                    <li>@parameter.Name: @parameter.Documentation (@parameter.Source)</li>
+                }
+                </ul>
+            }
+            </blockquote>
+            </li>
+        }
+        </ul>
+    </section>
+</div>
+
+@*<header>
+    <div class="content-wrapper">
+        <div class="float-left">
+            <p class="site-title">
+                <a href="~/">ASP.NET Web API for Returning JSONs</a></p>
         </div>
     </div>
 </header>
@@ -50,4 +93,4 @@
             </li>
         </ol>
     </section>
-</div>
+</div>*@
